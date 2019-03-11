@@ -3,22 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const readline = require('readline');
 const LinkedList_1 = require("./reverseSrc/LinkedList");
 function reverseLinkedList(list) {
-    const oldArray = list.toArray();
-    return new LinkedList_1.LinkedList().fromArray(oldArray);
+    const oldReversedArray = list.toArray().reverse();
+    return new LinkedList_1.LinkedList().fromArray(oldReversedArray);
 }
-let myLinkedArr = new LinkedList_1.LinkedList();
-myLinkedArr.fromArray([2, 3]);
-console.log(myLinkedArr.toArray());
-myLinkedArr.appendToTheStartOfTheList(1);
-console.log(myLinkedArr.toArray());
-console.log(myLinkedArr.getFirstElement());
-console.log(myLinkedArr.toArray());
-myLinkedArr.append(4);
-myLinkedArr.append(5);
-console.log(myLinkedArr.getElementsExceptFirst());
-console.log('just full array', myLinkedArr);
-console.log(reverseLinkedList(myLinkedArr));
-console.log(reverseLinkedList(myLinkedArr).toArray());
+exports.reverseLinkedList = reverseLinkedList;
 const linkedPromptList = new LinkedList_1.LinkedList();
 let line = 1;
 const increaseLineByOne = () => line++;

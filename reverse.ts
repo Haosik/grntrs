@@ -30,31 +30,12 @@ import { INode } from './reverseSrc/INode';
  *   1
  */
 
-function reverseLinkedList(list: LinkedList<any>) {
-  const oldArray = list.toArray();
+// function for b)
+export function reverseLinkedList(list: LinkedList<any>) {
+  const oldReversedArray = list.toArray().reverse();
 
-  return new LinkedList().fromArray(oldArray);
+  return new LinkedList().fromArray(oldReversedArray);
 }
-
-// #region a) and b) tests)))
-let myLinkedArr = new LinkedList<number>();
-// a.1
-myLinkedArr.fromArray([2, 3]);
-console.log(myLinkedArr.toArray());
-myLinkedArr.appendToTheStartOfTheList(1);
-console.log(myLinkedArr.toArray());
-// a.2
-console.log(myLinkedArr.getFirstElement());
-console.log(myLinkedArr.toArray());
-myLinkedArr.append(4);
-myLinkedArr.append(5);
-// a.3
-console.log(myLinkedArr.getElementsExceptFirst());
-console.log('just full array', myLinkedArr);
-// b
-console.log(reverseLinkedList(myLinkedArr));
-console.log(reverseLinkedList(myLinkedArr).toArray());
-// #endregion
 
 // #region Node program for c)
 const linkedPromptList = new LinkedList<any>();

@@ -111,4 +111,3 @@ export function groupByManufacturer(items: Item[]): GroupedItems[] {
 
   return result;
 }
-console.log(groupByManufacturer(items));

@@ -95,5 +95,4 @@ function groupByManufacturer(items) {
     return result;
 }
 exports.groupByManufacturer = groupByManufacturer;
-console.log(groupByManufacturer(exports.items));
 //# sourceMappingURL=group.js.map

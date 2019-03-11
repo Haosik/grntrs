@@ -79,3 +79,7 @@ test('Grouping of array with single item', () => {
 test('Items with "null" and "undefined" manufacturerId go into separate groups', () => {
   expect(groupByManufacturer(nullUndefinedItems)).toEqual(expectedNullUndefineditems);
 });
+
+test('Correct number of groups in grouped array', () => {
+  expect(groupByManufacturer(nullUndefinedItems).length).toBe(3);
+});
