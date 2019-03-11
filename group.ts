@@ -1,11 +1,11 @@
 'use strict';
 
-interface Item {
+export interface Item {
   manufacturerId: number;
   price: number;
 }
 
-type GroupedItems = Item[];
+export type GroupedItems = Item[];
 
 const items: Item[] = [
   {
@@ -87,7 +87,7 @@ const expected: GroupedItems[] = [
   ]
 ];
 
-function groupByManufacturer(items: Item[]): GroupedItems[] {
+export function groupByManufacturer(items: Item[]): GroupedItems[] {
   // TODO:
   // * implement grouping algo
   // * manufacturerid ordering in the output should be the same as in the input
