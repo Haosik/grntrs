@@ -36,17 +36,18 @@ function reverseLinkedList(list: LinkedList<any>) {
   return new LinkedList().fromArray(oldArray);
 }
 
-// #region a and b tests)))
+// #region a) and b) tests)))
 let myLinkedArr = new LinkedList<number>();
 // a.1
-myLinkedArr.fromArray([3, 2]);
-myLinkedArr.append(1);
+myLinkedArr.fromArray([2, 3]);
+console.log(myLinkedArr.toArray());
+myLinkedArr.appendToTheStartOfTheList(1);
 console.log(myLinkedArr.toArray());
 // a.2
 console.log(myLinkedArr.getFirstElement());
 console.log(myLinkedArr.toArray());
-myLinkedArr.append(7);
-myLinkedArr.append(9);
+myLinkedArr.append(4);
+myLinkedArr.append(5);
 // a.3
 console.log(myLinkedArr.getElementsExceptFirst());
 console.log('just full array', myLinkedArr);
@@ -75,14 +76,11 @@ rl.on('line', (input: INode<any>) => {
 });
 
 rl.on('close', () => {
-  // 4 useless lines of code further:
-  // Making array reverse just to obey the condition of using function from b)
-  const arrayFromLinkedPromptList = linkedPromptList.toArray();
-  const reversedArrayFromLinkedPromptList = new LinkedList();
-  reversedArrayFromLinkedPromptList.fromArray(arrayFromLinkedPromptList);
-  const reversedList = reverseLinkedList(reversedArrayFromLinkedPromptList);
+  const arrayFromLinkedPromptList = linkedPromptList;
+  const reversedList = reverseLinkedList(arrayFromLinkedPromptList);
+  const reversedListArray = reversedList.toArray();
 
-  const reversedLinesString = arrayFromLinkedPromptList.join('\n').trim();
+  const reversedLinesString = reversedListArray.join('\n').trim();
   console.log('\nHere is your "input with reverse order of lines": ');
   console.log(reversedLinesString);
 });

@@ -7,7 +7,7 @@ export interface Item {
 
 export type GroupedItems = Item[];
 
-const items: Item[] = [
+export const items: Item[] = [
   {
     manufacturerId: 1,
     price: 42
@@ -42,7 +42,7 @@ const items: Item[] = [
   }
 ];
 
-const expected: GroupedItems[] = [
+export const expected: GroupedItems[] = [
   [
     {
       manufacturerId: 1,

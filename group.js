@@ -1,5 +1,6 @@
 'use strict';
-const items = [
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.items = [
     {
         manufacturerId: 1,
         price: 42
@@ -33,7 +34,7 @@ const items = [
         price: 70
     }
 ];
-const expected = [
+exports.expected = [
     [
         {
             manufacturerId: 1,
@@ -93,5 +94,6 @@ function groupByManufacturer(items) {
     });
     return result;
 }
-console.log(groupByManufacturer(items));
+exports.groupByManufacturer = groupByManufacturer;
+console.log(groupByManufacturer(exports.items));
 //# sourceMappingURL=group.js.map

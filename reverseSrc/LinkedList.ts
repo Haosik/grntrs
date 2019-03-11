@@ -13,7 +13,7 @@ export class LinkedList<T> {
       return this;
     }
 
-    this.appendToTheStartOfTheList(node);
+    this.appendToTheEndOfTheList(node);
     return this;
   };
 
@@ -34,12 +34,13 @@ export class LinkedList<T> {
     return this;
   };
 
-  // private appendToTheEndOfTheList = (node: INode<T>) => {
-  //   this.tail.next = node;
-  //   this.tail = node;
-  // };
+  private appendToTheEndOfTheList = (node: INode<T>) => {
+    this.tail.next = node;
+    this.tail = node;
+  };
 
-  public appendToTheStartOfTheList = (node: INode<T>) => {
+  public appendToTheStartOfTheList = (value: any) => {
+    const node = this.forgeNode(value);
     const currentHead = this.head;
     this.head = node;
     this.head.next = currentHead;

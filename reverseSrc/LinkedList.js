@@ -11,7 +11,7 @@ class LinkedList {
                 this.tail = node;
                 return this;
             }
-            this.appendToTheStartOfTheList(node);
+            this.appendToTheEndOfTheList(node);
             return this;
         };
         this.isEmpty = () => !this.head;
@@ -28,7 +28,12 @@ class LinkedList {
             values.forEach(v => this.append(v));
             return this;
         };
-        this.appendToTheStartOfTheList = (node) => {
+        this.appendToTheEndOfTheList = (node) => {
+            this.tail.next = node;
+            this.tail = node;
+        };
+        this.appendToTheStartOfTheList = (value) => {
+            const node = this.forgeNode(value);
             const currentHead = this.head;
             this.head = node;
             this.head.next = currentHead;

@@ -7,13 +7,14 @@ function reverseLinkedList(list) {
     return new LinkedList_1.LinkedList().fromArray(oldArray);
 }
 let myLinkedArr = new LinkedList_1.LinkedList();
-myLinkedArr.fromArray([3, 2]);
-myLinkedArr.append(1);
+myLinkedArr.fromArray([2, 3]);
+console.log(myLinkedArr.toArray());
+myLinkedArr.appendToTheStartOfTheList(1);
 console.log(myLinkedArr.toArray());
 console.log(myLinkedArr.getFirstElement());
 console.log(myLinkedArr.toArray());
-myLinkedArr.append(7);
-myLinkedArr.append(9);
+myLinkedArr.append(4);
+myLinkedArr.append(5);
 console.log(myLinkedArr.getElementsExceptFirst());
 console.log('just full array', myLinkedArr);
 console.log(reverseLinkedList(myLinkedArr));
@@ -33,11 +34,10 @@ rl.on('line', (input) => {
     increaseLineByOne();
 });
 rl.on('close', () => {
-    const arrayFromLinkedPromptList = linkedPromptList.toArray();
-    const reversedArrayFromLinkedPromptList = new LinkedList_1.LinkedList();
-    reversedArrayFromLinkedPromptList.fromArray(arrayFromLinkedPromptList);
-    const reversedList = reverseLinkedList(reversedArrayFromLinkedPromptList);
-    const reversedLinesString = arrayFromLinkedPromptList.join('\n').trim();
+    const arrayFromLinkedPromptList = linkedPromptList;
+    const reversedList = reverseLinkedList(arrayFromLinkedPromptList);
+    const reversedListArray = reversedList.toArray();
+    const reversedLinesString = reversedListArray.join('\n').trim();
     console.log('\nHere is your "input with reverse order of lines": ');
     console.log(reversedLinesString);
 });
