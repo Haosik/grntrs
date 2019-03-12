@@ -9,7 +9,9 @@ class LinkedList {
                 this.head = node;
                 return this;
             }
-            this.appendToTheStart(value);
+            const oldHead = this.head;
+            this.head = node;
+            this.head.next = oldHead;
             return this;
         };
         this.isEmpty = () => !this.head;
@@ -26,12 +28,6 @@ class LinkedList {
             values.reverse();
             values.forEach(v => this.append(v));
             return this;
-        };
-        this.appendToTheStart = (value) => {
-            const node = this.forgeNode(value);
-            const currentHead = this.head;
-            this.head = node;
-            this.head.next = currentHead;
         };
         this.getFirstElement = () => this.head;
         this.getElementsExceptFirst = () => {

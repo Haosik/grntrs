@@ -15,7 +15,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 rl.on('line', (input) => {
-    linkedPromptList.appendToTheStart(input);
+    linkedPromptList.append(input);
     console.log(`On line ${line} you entered: ${input}`);
     increaseLineByOne();
 });
@@ -29,7 +29,7 @@ rl.on('close', () => {
 });
 rl.question(`\n Please enter anything (e.g. number or a string) and press "Enter". 
  After you\'re done, simply press ctrl+C (cmd+C on Mac) to see the lines you entered in reverse order \n`, (answer) => {
-    linkedPromptList.appendToTheStart(answer);
+    linkedPromptList.append(answer);
     console.log(`On line ${line} you entered: ${answer}`);
     increaseLineByOne();
 });

@@ -26,7 +26,7 @@ describe('LinkedList functionality', () => {
 
   test('Should insert items to the start of the list', () => {
     testedLinkedList.fromArray([2, 3]);
-    testedLinkedList.appendToTheStart(1);
+    testedLinkedList.append(1);
     expect(testedLinkedList.toArray()).toEqual([1, 2, 3]);
   });
 

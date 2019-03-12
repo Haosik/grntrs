@@ -14,7 +14,10 @@ export class LinkedList<T> {
       return this;
     }
 
-    this.appendToTheStart(value);
+    const oldHead = this.head;
+    this.head = node;
+    this.head.next = oldHead;
+
     return this;
   };
 
@@ -36,13 +39,6 @@ export class LinkedList<T> {
 
     values.forEach(v => this.append(v));
     return this;
-  };
-
-  public appendToTheStart = (value: any) => {
-    const node = this.forgeNode(value);
-    const currentHead = this.head;
-    this.head = node;
-    this.head.next = currentHead;
   };
 
   public getFirstElement = (): INode<T> => this.head;
