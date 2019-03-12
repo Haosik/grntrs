@@ -1,5 +1,4 @@
 import { LinkedList } from './LinkedList';
-import { INode } from './INode';
 import { reverseLinkedList } from '../reverse';
 
 describe('LinkedList functionality', () => {
@@ -22,12 +21,12 @@ describe('LinkedList functionality', () => {
     testedLinkedList.append(1);
     testedLinkedList.append(2);
     testedLinkedList.append(3);
-    expect(testedLinkedList.toArray()).toEqual([1, 2, 3]);
+    expect(testedLinkedList.toArray()).toEqual([3, 2, 1]);
   });
 
   test('Should insert items to the start of the list', () => {
     testedLinkedList.fromArray([2, 3]);
-    testedLinkedList.appendToTheStartOfTheList(1);
+    testedLinkedList.appendToTheStart(1);
     expect(testedLinkedList.toArray()).toEqual([1, 2, 3]);
   });
 

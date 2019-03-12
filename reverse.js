@@ -14,25 +14,22 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-const makeNode = (value) => ({ value });
 rl.on('line', (input) => {
-    const node = makeNode(input);
-    linkedPromptList.appendToTheStartOfTheList(node);
+    linkedPromptList.appendToTheStart(input);
     console.log(`On line ${line} you entered: ${input}`);
     increaseLineByOne();
 });
 rl.on('close', () => {
     const arrayFromLinkedPromptList = linkedPromptList;
     const reversedList = reverseLinkedList(arrayFromLinkedPromptList);
-    const reversedListArray = reversedList.toArray();
+    const reversedListArray = reversedList.toArray().reverse();
     const reversedLinesString = reversedListArray.join('\n').trim();
     console.log('\nHere is your "input with reverse order of lines": ');
     console.log(reversedLinesString);
 });
 rl.question(`\n Please enter anything (e.g. number or a string) and press "Enter". 
  After you\'re done, simply press ctrl+C (cmd+C on Mac) to see the lines you entered in reverse order \n`, (answer) => {
-    const node = makeNode(answer);
-    linkedPromptList.appendToTheStartOfTheList(node);
+    linkedPromptList.appendToTheStart(answer);
     console.log(`On line ${line} you entered: ${answer}`);
     increaseLineByOne();
 });

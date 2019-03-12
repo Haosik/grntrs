@@ -3,15 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class LinkedList {
     constructor() {
         this.head = null;
-        this.tail = null;
         this.append = (value) => {
             const node = this.forgeNode(value);
             if (this.isEmpty()) {
                 this.head = node;
-                this.tail = node;
                 return this;
             }
-            this.appendToTheEndOfTheList(node);
+            this.appendToTheStart(value);
             return this;
         };
         this.isEmpty = () => !this.head;
@@ -25,14 +23,11 @@ class LinkedList {
             return result;
         };
         this.fromArray = (values) => {
+            values.reverse();
             values.forEach(v => this.append(v));
             return this;
         };
-        this.appendToTheEndOfTheList = (node) => {
-            this.tail.next = node;
-            this.tail = node;
-        };
-        this.appendToTheStartOfTheList = (value) => {
+        this.appendToTheStart = (value) => {
             const node = this.forgeNode(value);
             const currentHead = this.head;
             this.head = node;

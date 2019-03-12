@@ -1,7 +1,6 @@
 const readline = require('readline');
 
 import { LinkedList } from './reverseSrc/LinkedList';
-import { INode } from './reverseSrc/INode';
 
 /* TODO
  * a) Implement an immutable, singly linked list in TypeScript, with the
@@ -31,7 +30,7 @@ import { INode } from './reverseSrc/INode';
  */
 
 // function for b)
-export function reverseLinkedList(list: LinkedList<any>) {
+export function reverseLinkedList<T>(list: LinkedList<T>) {
   const oldReversedArray = list.toArray().reverse();
 
   return new LinkedList().fromArray(oldReversedArray);
@@ -47,11 +46,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const makeNode = (value: any) => ({ value });
-
-rl.on('line', (input: INode<any>) => {
-  const node = makeNode(input);
-  linkedPromptList.appendToTheStartOfTheList(node);
+rl.on('line', (input: string) => {
+  linkedPromptList.appendToTheStart(input);
   console.log(`On line ${line} you entered: ${input}`);
   increaseLineByOne();
 });
@@ -59,7 +55,7 @@ rl.on('line', (input: INode<any>) => {
 rl.on('close', () => {
   const arrayFromLinkedPromptList = linkedPromptList;
   const reversedList = reverseLinkedList(arrayFromLinkedPromptList);
-  const reversedListArray = reversedList.toArray();
+  const reversedListArray = reversedList.toArray().reverse();
 
   const reversedLinesString = reversedListArray.join('\n').trim();
   console.log('\nHere is your "input with reverse order of lines": ');
@@ -69,9 +65,8 @@ rl.on('close', () => {
 rl.question(
   `\n Please enter anything (e.g. number or a string) and press "Enter". 
  After you\'re done, simply press ctrl+C (cmd+C on Mac) to see the lines you entered in reverse order \n`,
-  (answer: INode<any>) => {
-    const node = makeNode(answer);
-    linkedPromptList.appendToTheStartOfTheList(node);
+  (answer: string) => {
+    linkedPromptList.appendToTheStart(answer);
 
     console.log(`On line ${line} you entered: ${answer}`);
     increaseLineByOne();
