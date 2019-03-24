@@ -37,7 +37,7 @@ export function reverseLinkedList<T>(list: LinkedList<T>) {
 }
 
 // #region Node program for c)
-const linkedPromptList = new LinkedList<any>();
+const linkedPromptList = new LinkedList();
 let line = 1;
 const increaseLineByOne = () => line++;
 

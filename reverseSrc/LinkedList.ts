@@ -4,6 +4,13 @@ export interface INode<T> {
 }
 
 export class LinkedList<T> {
+  public fromArray = (oldArray: []): LinkedList<T> => {
+    oldArray.reverse();
+
+    oldArray.forEach(v => this.append(v));
+    return this;
+  };
+
   private head: INode<T> = null;
 
   public append = (value: T): LinkedList<T> => {
@@ -33,13 +40,13 @@ export class LinkedList<T> {
     return result;
   };
 
-  public fromArray = (values: T[]): LinkedList<T> => {
-    // To behave as expected and get 1>2>3 from [1,2,3]
-    values.reverse();
+  // public fromArray = (values: T[]): LinkedList<T> => {
+  //   // To behave as expected and get 1>2>3 from [1,2,3]
+  //   values.reverse();
 
-    values.forEach(v => this.append(v));
-    return this;
-  };
+  //   values.forEach(v => this.append(v));
+  //   return this;
+  // };
 
   public getFirstElement = (): INode<T> => this.head;
 
