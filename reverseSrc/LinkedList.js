@@ -24,6 +24,11 @@ class LinkedList {
             }
             return result;
         };
+        this.fromArray = (oldArray) => {
+            oldArray.reverse();
+            oldArray.forEach(v => this.append(v));
+            return this;
+        };
         this.getFirstElement = () => this.head;
         this.getElementsExceptFirst = () => {
             const result = [];
@@ -37,11 +42,6 @@ class LinkedList {
         this.forgeNode = (value) => {
             return { value, next: null };
         };
-    }
-    fromArray(oldArray) {
-        oldArray.reverse();
-        oldArray.forEach(v => this.append(v));
-        return this;
     }
 }
 exports.LinkedList = LinkedList;

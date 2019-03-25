@@ -4,13 +4,6 @@ export interface INode<T> {
 }
 
 export class LinkedList<T> {
-  public fromArray = (oldArray: []): LinkedList<T> => {
-    oldArray.reverse();
-
-    oldArray.forEach(v => this.append(v));
-    return this;
-  };
-
   private head: INode<T> = null;
 
   public append = (value: T): LinkedList<T> => {
@@ -47,6 +40,13 @@ export class LinkedList<T> {
   //   values.forEach(v => this.append(v));
   //   return this;
   // };
+
+  public fromArray = (oldArray: T[]): LinkedList<T> => {
+    oldArray.reverse();
+
+    oldArray.forEach(v => this.append(v));
+    return this;
+  };
 
   public getFirstElement = (): INode<T> => this.head;
 
