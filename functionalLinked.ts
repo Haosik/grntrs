@@ -5,15 +5,15 @@ interface INode<T> {
   next?: INode<T>;
 }
 
-type TLinkedList = INode<TNode>[];
+type TLispList = INode<TNode>[];
 
-let myLinkList: TLinkedList = [];
+let myLinkList: TLispList = [];
 
 const forgeNode = (val: TNode): INode<TNode> => ({
   value: val
 });
 
-const append = (list: INode<TNode>[], val: TNode): INode<TNode>[] => {
+const cons = (val: TNode, list: INode<TNode>[]): INode<TNode>[] => {
   const node = forgeNode(val);
   node.next = list.length ? list[0] : null;
 
@@ -23,8 +23,15 @@ const append = (list: INode<TNode>[], val: TNode): INode<TNode>[] => {
 
 const toArray = (list: INode<TNode>[]): TNode[] => list.map(el => el.value);
 
-append(myLinkList, 1);
-append(myLinkList, 2);
-append(myLinkList, 3);
+function list() {}
+function car() {}
+function cdr() {}
+function append() {}
+function member() {}
+function reverse() {}
+
+cons(1, myLinkList);
+cons(2, myLinkList);
+cons(3, myLinkList);
 console.log(myLinkList);
 console.log(toArray(myLinkList));
