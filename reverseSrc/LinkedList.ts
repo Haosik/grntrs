@@ -33,11 +33,18 @@ export class LinkedList<T> {
     return result;
   };
 
-  public fromArray = (values: T[]): LinkedList<T> => {
-    // To behave as expected and get 1>2>3 from [1,2,3]
-    values.reverse();
+  // public fromArray = (values: T[]): LinkedList<T> => {
+  //   // To behave as expected and get 1>2>3 from [1,2,3]
+  //   values.reverse();
 
-    values.forEach(v => this.append(v));
+  //   values.forEach(v => this.append(v));
+  //   return this;
+  // };
+
+  public fromArray = (oldArray: T[]): LinkedList<T> => {
+    oldArray.reverse();
+
+    oldArray.forEach(v => this.append(v));
     return this;
   };
 

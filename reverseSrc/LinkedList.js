@@ -24,9 +24,9 @@ class LinkedList {
             }
             return result;
         };
-        this.fromArray = (values) => {
-            values.reverse();
-            values.forEach(v => this.append(v));
+        this.fromArray = (oldArray) => {
+            oldArray.reverse();
+            oldArray.forEach(v => this.append(v));
             return this;
         };
         this.getFirstElement = () => this.head;
