@@ -81,16 +81,19 @@ exports.expected = [
 function groupByManufacturer(items) {
     let result = [];
     let idsArray = [];
-    items.forEach(item => {
-        const itemId = item.manufacturerId;
-        const indexOfId = idsArray.indexOf(itemId);
-        if (indexOfId === -1) {
-            idsArray.push(itemId);
-            result.push([item]);
+    const itemsHashObj = items.reduce((acc, item) => {
+        const { manufacturerId } = item;
+        if (!acc.hasOwnProperty(manufacturerId)) {
+            acc[manufacturerId] = [item];
+            idsArray.push(manufacturerId);
         }
         else {
-            result[indexOfId].push(item);
+            acc[manufacturerId].push(item);
         }
+        return acc;
+    }, {});
+    result = idsArray.map((manufacturerId) => {
+        return itemsHashObj[manufacturerId];
     });
     return result;
 }

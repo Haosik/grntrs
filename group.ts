@@ -5,6 +5,10 @@ export interface Item {
   price: number;
 }
 
+export type hashMapItems = {
+  [manufacturerId: number]: Item[];
+};
+
 export type GroupedItems = Item[];
 
 export const items: Item[] = [
@@ -97,16 +101,19 @@ export function groupByManufacturer(items: Item[]): GroupedItems[] {
   let result: GroupedItems[] = [];
   let idsArray: number[] = [];
 
-  items.forEach(item => {
-    const itemId = item.manufacturerId;
-    const indexOfId = idsArray.indexOf(itemId);
-
-    if (indexOfId === -1) {
-      idsArray.push(itemId);
-      result.push([item]);
+  const itemsHashObj: hashMapItems = items.reduce((acc: hashMapItems, item: Item) => {
+    const { manufacturerId } = item;
+    if (!acc.hasOwnProperty(manufacturerId)) {
+      acc[manufacturerId] = [item];
+      idsArray.push(manufacturerId);
     } else {
-      result[indexOfId].push(item);
+      acc[manufacturerId].push(item);
     }
+    return acc;
+  }, {});
+
+  result = idsArray.map((manufacturerId: number) => {
+    return itemsHashObj[manufacturerId];
   });
 
   return result;
